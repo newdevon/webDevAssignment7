@@ -7,7 +7,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <img src="https://letstalkpayments.com/wp-content/uploads/2016/04/Bank.png" alt="bank" />
+                <img src="https://photos2.fotosearch.com/bthumb/CSP/CSP996/bank-icon-clipart__k17206634.jpg" alt="bank" />
                 <h1>Bank of React</h1>
 
                 <div>
@@ -20,6 +20,10 @@ class Home extends Component {
 
                 <div>
                     <Link to="/Debits">Debits</Link>
+                </div>
+
+                <div>
+                    <Link to="/Credits">Credits</Link>
                 </div>
                 <AccountBalance accountBalance={this.props.accountBalance} />
             </div>

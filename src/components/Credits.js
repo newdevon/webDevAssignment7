@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import AccountBalance from './AccountBalance';
 import { Link } from 'react-router-dom';
 
-class Debits extends Component {
+class Credits extends Component {
 
 
     constructor() {
@@ -50,7 +50,7 @@ class Debits extends Component {
             return;
         }
 
-        this.props.addDebit(currItem);  //calls function passed as prop from App.js
+        this.props.addCredit(currItem);  //calls function passed as prop from App.js
 
     }
 
@@ -58,7 +58,7 @@ class Debits extends Component {
         return (
             <div>
                 <div>
-                    <h1>Debits</h1>
+                    <h1>Credits</h1>
                 </div>
 
                 <div>
@@ -74,9 +74,9 @@ class Debits extends Component {
                 </div>
 
                 <div>
-                    <Link to="/Credits">Credits</Link>
+                    <Link to="/Debits">Debits</Link>
                 </div>
-
+                
                 <div>
                     Balance: {this.props.accountBalance}
                 </div>
@@ -102,11 +102,10 @@ class Debits extends Component {
                 <div>
                     <ul>
                         {
-                            //Debits array passed from props is rendered here
-                            this.props.debits.map((debits, index) => {
-                                let desc = debits.description;
-                                let amt = debits.amount;
-                                let date = debits.date;
+                            this.props.credits.map((credits, index) => {
+                                let desc = credits.description;
+                                let amt = credits.amount;
+                                let date = credits.date;
 
                                 return (
                                     <div key={index}>
@@ -124,4 +123,4 @@ class Debits extends Component {
     }
 }
 
-export default Debits;
+export default Credits;
