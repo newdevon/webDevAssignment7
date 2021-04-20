@@ -4,6 +4,7 @@ import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import LogIn from './components/Login';
 import Debits from './components/Debits';
+import Credits from './components/Credits';
 import axios from "axios"
 
 class App extends Component {
@@ -22,7 +23,7 @@ class App extends Component {
     }
 
     this.addDebit = this.addDebit.bind(this);
-    //this.addCredit = this.addCredit.bind(this);
+    this.addCredit = this.addCredit.bind(this);
   }
 
   //function loads the debit and credits array as well as the balance
@@ -67,7 +68,25 @@ class App extends Component {
       debits: debArr
     })
   }
-  
+
+  //credits version of above
+  addCredit = (item) => {
+
+    let credArr = this.state.credits;
+    //cast int, gave errors otherwise
+    let newBal = this.state.accountBalance + item.amount * 1; //getting new balance
+    console.log(newBal);
+    //pushing new item to array
+    credArr.push( { "description" : item.description ,
+                    "amount" : item.amount,
+                    "date" : item.date})
+
+    //updating states
+    this.setState({
+      accountBalance: newBal,
+      credits: credArr
+    })
+  }
 
   mockLogIn = (logInInfo) => {
     const newUser = {...this.state.currentUser}
@@ -85,6 +104,8 @@ class App extends Component {
 
     //debits comp gets the debits arr, balance, addDebit function
     const DebitsComponent = () => (<Debits accountBalance={this.state.accountBalance} debits={this.state.debits} addDebit={this.addDebit}/>);
+    //credits component with same functionality as above
+    const CreditsComponent = () => (<Credits accountBalance={this.state.accountBalance} credits={this.state.credits} addCredit={this.addCredit}/>);
     return (
       <Router>
         <div>
@@ -92,6 +113,7 @@ class App extends Component {
           <Route exact path="/userProfile" render={UserProfileComponent} />
           <Route exact path="/login" render={LogInComponent}/>
           <Route exact path="/debits" render={DebitsComponent} />
+          <Route exact path="/credits" render={CreditsComponent}/>
         </div>
       </Router>
     );
