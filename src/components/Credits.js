@@ -70,9 +70,13 @@ class Credits extends Component {
                 </div>
 
                 <div>
-                    <Link to="/userProfile">Credits</Link>
+                    <Link to="/userProfile">User Profile</Link>
                 </div>
 
+                <div>
+                    <Link to="/Debits">Debits</Link>
+                </div>
+                
                 <div>
                     Balance: {this.props.accountBalance}
                 </div>

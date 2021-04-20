@@ -70,7 +70,11 @@ class Debits extends Component {
                 </div>
 
                 <div>
-                    <Link to="/userProfile">Debits</Link>
+                    <Link to="/userProfile">User Profile</Link>
+                </div>
+
+                <div>
+                    <Link to="/Credits">Credits</Link>
                 </div>
 
                 <div>
