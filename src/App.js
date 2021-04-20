@@ -21,10 +21,11 @@ class App extends Component {
       credits: []
     }
 
-    //this.addDebit = this.addDebit.bind(this);
+    this.addDebit = this.addDebit.bind(this);
     //this.addCredit = this.addCredit.bind(this);
   }
 
+  //function loads the debit and credits array as well as the balance
   async componentDidMount(){
     let debits = await axios.get("https://moj-api.herokuapp.com/debits");
     let credits = await axios.get("https://moj-api.herokuapp.com/credits");
@@ -44,9 +45,29 @@ class App extends Component {
 
     const accountBalance = creditSum - debitSum;
 
-    this.setState({debits, credits, accountBalance});
+    this.setState({debits, credits, accountBalance}); //sets the state for debit credit and balance
 
   }
+
+  //function pushes the new item to debit array and updates balance 
+  //item is the item obj created in Debits.js
+  addDebit = (item) => {
+
+    let debArr = this.state.debits;
+    let newBal = this.state.accountBalance - item.amount; //getting new balance
+
+    //pushing new item to array
+    debArr.push( { "description" : item.description ,
+                    "amount" : item.amount,
+                    "date" : item.date})
+
+    //updating states
+    this.setState({
+      accountBalance: newBal,
+      debits: debArr
+    })
+  }
+  
 
   mockLogIn = (logInInfo) => {
     const newUser = {...this.state.currentUser}
@@ -62,7 +83,8 @@ class App extends Component {
     );
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
 
-    const DebitsComponent = () => (<Debits accountBalance={this.state.accountBalance} debits={this.state.debits}/>);
+    //debits comp gets the debits arr, balance, addDebit function
+    const DebitsComponent = () => (<Debits accountBalance={this.state.accountBalance} debits={this.state.debits} addDebit={this.addDebit}/>);
     return (
       <Router>
         <div>
