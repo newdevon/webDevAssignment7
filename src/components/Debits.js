@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import "./Home.css"
+import "./DebitCredit.css"
 //import AccountBalance from './AccountBalance';
-import { Link } from 'react-router-dom';
 
 class Debits extends Component {
 
@@ -56,28 +57,8 @@ class Debits extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <h1>Debits</h1>
-                </div>
-
-                <div>
-                    <Link to="/">Home</Link>
-                </div>
-
-                <div>
-                    <Link to="/Login">Log in</Link>
-                </div>
-
-                <div>
-                    <Link to="/userProfile">User Profile</Link>
-                </div>
-
-                <div>
-                    <Link to="/Credits">Credits</Link>
-                </div>
-
-                <div>
+            <div className="screenDisplay">
+                <div className="dcbalance">
                     Balance: {this.props.accountBalance}
                 </div>
 
@@ -85,16 +66,16 @@ class Debits extends Component {
                 <div>
                     <form onSubmit={this.handleSubmit} >
                         <div>
-                            <label>description</label>
+                            <label>Description: </label>
                             <input type="text" name="description" onChange={this.handleChange} value={this.state.description} />
 
-                            <label>amount</label>
+                            <label>Amount: </label>
                             <input type="text" name="amount" onChange={this.handleChange} value={this.state.amount} />
 
-                            <label>date</label>
+                            <label>Date: </label>
                             <input type="text" name="date" onChange={this.handleChange} value={this.state.date} />
 
-                            <button>Submit</button>
+                            <button className="submit">Submit</button>
                         </div>
                     </form>
                 </div>

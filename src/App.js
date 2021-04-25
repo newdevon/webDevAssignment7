@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import LogIn from './components/Login';
 import Debits from './components/Debits';
 import Credits from './components/Credits';
 import axios from "axios"
+import './App.css'
 
 class App extends Component {
 
@@ -44,7 +46,7 @@ class App extends Component {
       creditSum += credit.amount
     })
 
-    const accountBalance = creditSum - debitSum;
+    const accountBalance = (creditSum - debitSum).toFixed(2);
 
     this.setState({debits, credits, accountBalance}); //sets the state for debit credit and balance
 
@@ -74,7 +76,7 @@ class App extends Component {
 
     let credArr = this.state.credits;
     //cast int, gave errors otherwise
-    let newBal = this.state.accountBalance + item.amount * 1; //getting new balance
+    let newBal = (this.state.accountBalance + item.amount * 1).toFixed(2); //getting new balance
     console.log(newBal);
     //pushing new item to array
     credArr.push( { "description" : item.description ,
@@ -109,6 +111,28 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <img src="https://i.imgur.com/gWP6ILh.png" alt="bank" />
+          <div className="grid-container">
+            <div>
+              <Link to="/">Home</Link>
+            </div>
+
+            <div>
+              <Link to="/Login">Log in</Link>
+            </div>
+
+            <div>
+              <Link to="/userProfile">User Profile</Link>
+            </div>
+
+            <div>
+              <Link to="/Debits">Debits</Link>
+            </div>
+
+            <div>
+              <Link to="/Credits">Credits</Link>
+            </div>
+          </div>
           <Route exact path="/" render={HomeComponent} />
           <Route exact path="/userProfile" render={UserProfileComponent} />
           <Route exact path="/login" render={LogInComponent}/>

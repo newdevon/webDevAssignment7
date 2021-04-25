@@ -1,30 +1,17 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import './UserProfile.css';
 
 class UserProfile extends Component {
   render() {
     return (
-      <div>
+      <div className="center screenDisplay">
         <h1>User Profile</h1>
 
         <div>Username: {this.props.userName}</div>
         <div>Member Since: {this.props.memberSince}</div>
 
-        <div>
-          <Link to="/">Home</Link>
-        </div>
+        <h4>Proceed to add Credit or Debit</h4>
 
-        <div>
-          <Link to="/Login">Log in</Link>
-        </div>
-
-        <div>
-          <Link to="/Debits">Debits</Link>
-        </div>
-
-        <div>
-          <Link to="/Credits">Credits</Link>
-        </div>
       </div>
     );
   }
