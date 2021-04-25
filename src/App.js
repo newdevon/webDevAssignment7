@@ -6,6 +6,7 @@ import LogIn from './components/Login';
 import Debits from './components/Debits';
 import Credits from './components/Credits';
 import axios from "axios"
+import './App.css'
 
 class App extends Component {
 
@@ -109,6 +110,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <img src="https://i.imgur.com/gWP6ILh.png" alt="bank" />
           <Route exact path="/" render={HomeComponent} />
           <Route exact path="/userProfile" render={UserProfileComponent} />
           <Route exact path="/login" render={LogInComponent}/>
