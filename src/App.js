@@ -118,11 +118,11 @@ class App extends Component {
             </div>
 
             <div>
-              <Link to="/userProfile">User Profile</Link>
+              <Link to="/Login">Log in</Link>
             </div>
 
             <div>
-              <Link to="/Login">Log in</Link>
+              <Link to="/userProfile">User Profile</Link>
             </div>
 
             <div>

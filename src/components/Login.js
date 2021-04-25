@@ -35,7 +35,7 @@ class LogIn extends Component {
     }
 
     return (
-      <div className='center'>
+      <div className="center screenDisplay">
         <form onSubmit={this.handleSubmit}>
           <div>
             <h1>Sign-in</h1>

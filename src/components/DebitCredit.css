@@ -1,0 +1,13 @@
+.dcbalance {
+    text-align: center;
+    font-family: Marker Felt, fantasy;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+label {
+    padding-left: 20px;
+}
+.submit {
+    margin-left: 10px;
+}
