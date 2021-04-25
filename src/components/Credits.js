@@ -56,27 +56,7 @@ class Credits extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <h1>Credits</h1>
-                </div>
-
-                <div>
-                    <Link to="/">Home</Link>
-                </div>
-
-                <div>
-                    <Link to="/Login">Log in</Link>
-                </div>
-
-                <div>
-                    <Link to="/userProfile">User Profile</Link>
-                </div>
-
-                <div>
-                    <Link to="/Debits">Debits</Link>
-                </div>
-                
+            <div> 
                 <div>
                     Balance: {this.props.accountBalance}
                 </div>

@@ -58,26 +58,6 @@ class Debits extends Component {
         return (
             <div>
                 <div>
-                    <h1>Debits</h1>
-                </div>
-
-                <div>
-                    <Link to="/">Home</Link>
-                </div>
-
-                <div>
-                    <Link to="/Login">Log in</Link>
-                </div>
-
-                <div>
-                    <Link to="/userProfile">User Profile</Link>
-                </div>
-
-                <div>
-                    <Link to="/Credits">Credits</Link>
-                </div>
-
-                <div>
                     Balance: {this.props.accountBalance}
                 </div>
 

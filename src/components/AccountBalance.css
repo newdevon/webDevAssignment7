@@ -1,0 +1,8 @@
+.balance {
+    text-align: center;
+    font-size: 50px;
+    font-family: Marker Felt, fantasy;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
