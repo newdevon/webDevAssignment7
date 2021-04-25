@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './UserProfile.css';
 
 class UserProfile extends Component {
@@ -10,6 +9,9 @@ class UserProfile extends Component {
 
         <div>Username: {this.props.userName}</div>
         <div>Member Since: {this.props.memberSince}</div>
+
+        <h4>Proceed to add Credit or Debit</h4>
+
       </div>
     );
   }
