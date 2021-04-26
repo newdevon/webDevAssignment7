@@ -46,7 +46,7 @@ class App extends Component {
       creditSum += credit.amount
     })
 
-    const accountBalance = (creditSum - debitSum).toFixed(2);
+    const accountBalance = creditSum - debitSum;
 
     this.setState({debits, credits, accountBalance}); //sets the state for debit credit and balance
 
@@ -76,7 +76,7 @@ class App extends Component {
 
     let credArr = this.state.credits;
     //cast int, gave errors otherwise
-    let newBal = (this.state.accountBalance + item.amount * 1).toFixed(2); //getting new balance
+    let newBal = this.state.accountBalance + item.amount * 1; //getting new balance
     console.log(newBal);
     //pushing new item to array
     credArr.push( { "description" : item.description ,
